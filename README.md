@@ -345,7 +345,7 @@ sudo dnf install nasm mtools dosfstools genisoimage
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/winhuirass-hue/x16-PRos-ideas.git
-cd x16-PRos
+cd x16-PRos-ideas
 ```
 
 2. **Make build script executable:**
