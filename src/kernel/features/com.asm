@@ -29,7 +29,7 @@ int20_handler:
 
     jmp get_cmd
 
-.finished_msg db 'Program finished. Press any key to contine...', 10, 13, '$'
+.finished_msg db 'Press any key to contine...', 10, 13, '$'
 
 api_dos_init:
     pusha
