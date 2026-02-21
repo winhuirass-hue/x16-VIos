@@ -225,7 +225,7 @@ programs_com=(
     "programs/COM/hello.asm HELLO.COM"
     "programs/COM/fractal.asm FRACTAl.COM"
     "programs/COM/clock.asm CLOCK.COM"
-    "programs/COM/file.asm FILE.COM"
+    "programs/COM/nfm.asm FILE.COM"
 )
 
 for prog in "${programs_com[@]}"; do
