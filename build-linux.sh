@@ -202,6 +202,7 @@ programs=(
     "programs/chars.asm CHARS.BIN"
     "programs/eye.asm EYE.BIN"
     "programs/ed.asm ED.BIN"
+    "programs/desk.asm DESK.BIN"
 )
 
 for prog in "${programs[@]}"; do
