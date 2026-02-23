@@ -1938,7 +1938,7 @@ cd_command:
 ; =================
 
 ; ======= GUI ======
-%INCLUDE "src/kernel/features/gui/desktop.asm"
+%INCLUDE "src/kernel/features/desktop.asm"
 ; ==================
 
 ; ===================== Data Section =====================
@@ -2120,7 +2120,7 @@ current_drive_char db 'A'
 
 login_password_prompt  db 19 dup(' '), 0xC9, 39 dup(0xCD), 0xBB, 10, 13
                        db 19 dup(' '), 0xBA, '        Enter your password:           ', 0xBA, 10, 13
-                       db 19 dup(' '), 0xBA, '    _______________________________    ', 0xBA, 10, 13
+                       db 19 dup(' '), 0xBA, '    <_______________________________>    ', 0xBA, 10, 13
                        db 19 dup(' '), 0xC0, 39 dup(0xCD), 0xBC, 10, 13, 0
 
 mt                  db '', 10, 13, 0
