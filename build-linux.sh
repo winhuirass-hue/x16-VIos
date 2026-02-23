@@ -202,7 +202,6 @@ programs=(
     "programs/chars.asm CHARS.BIN"
     "programs/eye.asm EYE.BIN"
     "programs/ed.asm ED.BIN"
-    "programs/desk.asm DESK.BIN"
 )
 
 for prog in "${programs[@]}"; do
@@ -225,7 +224,6 @@ programs_com=(
     "programs/COM/hello.asm HELLO.COM"
     "programs/COM/fractal.asm FRACTAl.COM"
     "programs/COM/clock.asm CLOCK.COM"
-    "programs/COM/nfm.asm FILE.COM"
 )
 
 for prog in "${programs_com[@]}"; do
