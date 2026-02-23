@@ -1222,6 +1222,10 @@ cat_file:
     call print_newline
     jmp .exit_cat
 
+ mov di, desktop_cmd
+    call string_string_compare
+    jc launch_desktop
+
 .empty_file:
     mov si, .empty_msg
     call print_string_red
@@ -1380,6 +1384,12 @@ copy_file:
 
 .tmp dw 0
 .success_msg db 'File copied successfully', 0
+
+launch_desktop:
+    call DisableMouse           
+    call desktop_run        
+    call EnableMouse
+    jmp get_cmd
 
 ren_file:
     mov word si, [param_list]
@@ -1927,6 +1937,10 @@ cd_command:
 %INCLUDE "src/kernel/features/api/api_fs.asm"
 ; =================
 
+; ======= GUI ======
+%INCLUDE "src/kernel/features/gui/desktop.asm"
+; ==================
+
 ; ===================== Data Section =====================
 
 ; ------ Header ------
@@ -1959,7 +1973,7 @@ kshell_comands db 'HELP               - get list of commands', 10, 13
 ; ------ About OS ------
 info db 10, 13
      db 20 dup(0xC4), ' INFO ', 21 dup(0xC4), 10, 13
-     db '  x16 PRos is the simple 16 bit operating', 10, 13
+     db '  x16 PRos ideas is the ideas of x16 PRos', 10, 13
      db '  system written in NASM for x86 PC`s ', 10, 13
      db 47 dup(0xC4), 10, 13
      db '  Author: PRoX (https://github.com/PRoX2011)', 10, 13
@@ -1970,7 +1984,7 @@ info db 10, 13
      db '  OS version: 0.7.0-dev', 10, 13
      db 0
 
-version_msg db 'PRos Terminal v0.2', 10, 13, 0
+version_msg db 'PRos Terminal v0.3', 10, 13, 0
 
 ; ------ Commands ------
 exit_string    db 'EXIT', 0
@@ -1995,6 +2009,7 @@ view_string    db 'VIEW', 0
 mkdir_string   db 'MKDIR', 0
 deldir_string  db 'DELDIR', 0
 cd_string      db 'CD', 0
+desktop_cmd db 'DESKTOP', 0
 
 ; ------ Errors ------
 invalid_msg       db 'No such command or program', 0
@@ -2020,7 +2035,7 @@ stack_pointer      db '  Stack Pointer (SP) : ', 0
 
 family_str         db '  CPU Family         : ', 0
 unknown_family_str db 'Unknown', 0
-intel_core_str     db 'Intel', 0
+intel_core_str     db 'Intel Core', 0
 intel_pentium_str  db 'Intel Pentium', 0
 amd_ryzen_str      db 'AMD Ryzen', 0
 amd_athlon_str     db 'AMD Athlon', 0
